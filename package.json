@@ -1,6 +1,6 @@
 {
   "name": "jsfperf",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "expoerimenting with performance metrics between multiple fp libraries",
   "main": "index.js",
   "scripts": {
