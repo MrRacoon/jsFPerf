@@ -1,7 +1,7 @@
 const { blue, yellow, cyan, green } = require('chalk');
 const { __, find, map, prop } = require('ramda');
 
-const availTests = ['assocPath', 'find', 'path'];
+const availTests = ['assocPath', 'find', 'path', 'assoc'];
 const availsizes = ['empty', 'singleton', 'small', 'medium', 'large'];
 
 const Getopt = require('node-getopt');
