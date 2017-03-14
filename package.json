@@ -1,0 +1,27 @@
+{
+  "name": "jsfperf",
+  "version": "1.0.0",
+  "description": "expoerimenting with performance metrics between multiple fp libraries",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrRacoon/jsFPerf.git"
+  },
+  "keywords": [
+    "perf",
+    "js",
+    "fp",
+    "benchmark",
+    "immutable",
+    "ramda"
+  ],
+  "author": "Erik Sutherland <erik.misu@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrRacoon/jsFPerf/issues"
+  },
+  "homepage": "https://github.com/MrRacoon/jsFPerf#readme"
+}
