@@ -13,15 +13,9 @@ I made this repository because I was curious what the stats would be.
 Installation
 ------------
 
-I'm not going to put this on the registry unless it get's a little more serious.
-
 ```shell
-git clone https://github.com/MrRacoon/jsFPerf.git
-cd jsFPerf
-npm i -g
+npm i -g jsfperf
 ```
-
-this will install the binary `jsfperf`, which will run the suite.
 
 Usage
 -----
