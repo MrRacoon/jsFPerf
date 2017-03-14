@@ -34,8 +34,8 @@ const samples = require('./src/utils')(size);
 
 if (options.verbose) {
   console.log('Running tests:', cyan(tests.toString()));
-  console.log('Sample Size:', cyan(size), '\n');
-  console.log('samples', samples);
+  console.log('Sample Size:', cyan(size));
+  console.log('samples', cyan(JSON.stringify(samples, null, 1)));
 }
 
 map(test => {
