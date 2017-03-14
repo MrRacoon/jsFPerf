@@ -1,3 +1,4 @@
+const { blue, yellow, cyan, green } = require('chalk');
 const { __, find, map, prop } = require('ramda');
 
 const availTests = ['assocPath', 'find', 'path'];
@@ -29,17 +30,17 @@ const { argv, options } = getopt.bindHelp().parseSystem();
 const size = find(prop(__, options), availsizes) || 'small';
 const tests = argv.length ? argv : availTests;
 
-console.log('Running tests:', tests.toString());
-console.log('Sample Size:', size, '\n');
+console.log('Running tests:', cyan(tests.toString()));
+console.log('Sample Size:', cyan(size), '\n');
 
 
 map(test => {
   require(`./src/${test}`)(size)
     .on('cycle', function(event) {
-      console.log(String(event.target));
+      console.log(green(String(event.target)));
     })
     .on('complete', function() {
-      console.log('Fastest is ' + this.filter('fastest').map('name') + '\n');
+      console.log(blue('Fastest is ') + yellow(this.filter('fastest').map('name')) + '\n');
     })
     .run({ async: false });
 }, tests);

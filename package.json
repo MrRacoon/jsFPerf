@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js | tee lastRun.txt",
-    "test": "mocha test/index.js"
+    "test": "./bin/jsfperf -m"
   },
   "bin": {
     "jsfperf": "bin/jsfperf"
@@ -33,6 +33,7 @@
   "homepage": "https://github.com/MrRacoon/jsFPerf#readme",
   "dependencies": {
     "benchmark": "^2.1.3",
+    "chalk": "^1.1.3",
     "immutable": "^3.8.1",
     "lodash": "^4.17.4",
     "node-getopt": "^0.2.3",
