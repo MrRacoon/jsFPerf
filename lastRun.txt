@@ -1,0 +1,4 @@
+immutable.find x 60,041 ops/sec ±0.82% (89 runs sampled)
+ramda.find x 64,638 ops/sec ±0.88% (87 runs sampled)
+lodash.find x 56,922 ops/sec ±1.17% (89 runs sampled)
+Fastest is ramda.find
