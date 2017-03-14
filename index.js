@@ -8,7 +8,7 @@ const getopt = new Getopt([
   ['e', 'empty', 'use empty samples'],
   ['t', 'singleton', 'use singleton samples'],
   ['s', 'small', 'use small samples'],
-  ['m', 'med', 'use medium samples'],
+  ['m', 'medium', 'use medium samples'],
   ['l', 'large', 'use largs samples'],
   ['h', 'help', 'display this help'],
 ]).setHelp(
