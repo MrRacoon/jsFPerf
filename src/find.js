@@ -5,8 +5,8 @@ const _ = require('lodash/fp');
 const Benchmark = require('benchmark');
 const suite = new Benchmark.Suite;
 
-module.exports = ({ object }) => {
-  const { value, index } = object;
+module.exports = ({ list }) => {
+  const { value, index } = list;
   const immVal = I.fromJS(value);
   const pred = R.equals(500);
   return suite
