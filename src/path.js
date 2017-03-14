@@ -5,8 +5,8 @@ const _ = require('lodash/fp');
 const Benchmark = require('benchmark');
 const suite = new Benchmark.Suite;
 
-module.exports = (size) => {
-  const { value, path, pathStr } = require('./utils/object')[size];
+module.exports = ({ list }) => {
+  const { value, path, pathStr } = list;
   const immVal = I.fromJS(value);
   return suite
     .add('immutable.getIn', () => { immVal.getIn(path); })

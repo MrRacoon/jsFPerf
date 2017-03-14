@@ -11,6 +11,7 @@ const getopt = new Getopt([
   ['s', 'small', 'use small samples'],
   ['m', 'medium', 'use medium samples'],
   ['l', 'large', 'use largs samples'],
+  ['v', 'verbose', 'show samples on the screen'],
   ['h', 'help', 'display this help'],
 ]).setHelp(
   "Usage: jsfperf [OPTIONS] <list of modules>\n" +
@@ -27,15 +28,18 @@ const getopt = new Getopt([
 
 const { argv, options } = getopt.bindHelp().parseSystem();
 
-const size = find(prop(__, options), availsizes) || 'small';
-const tests = argv.length ? argv : availTests;
+const tests   = argv.length ? argv : availTests;
+const size    = find(prop(__, options), availsizes) || 'small';
+const samples = require('./src/utils')(size);
 
-console.log('Running tests:', cyan(tests.toString()));
-console.log('Sample Size:', cyan(size), '\n');
-
+if (options.verbose) {
+  console.log('Running tests:', cyan(tests.toString()));
+  console.log('Sample Size:', cyan(size), '\n');
+  console.log('samples', samples);
+}
 
 map(test => {
-  require(`./src/${test}`)(size)
+  require(`./src/${test}`)(samples)
     .on('cycle', function(event) {
       console.log(green(String(event.target)));
     })
