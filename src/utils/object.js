@@ -1,4 +1,3 @@
-const { size } = require('./constants');
 module.exports = {
   empty: {
     value: {},
@@ -25,4 +24,4 @@ module.exports = {
     path: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
     pathStr: 'a.b.c.d.e.f.g.h.i.j',
   },
-}[size];
+};

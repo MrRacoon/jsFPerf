@@ -1,4 +1,3 @@
-const { size } = require('./constants');
 const range = n => Array.apply(null, Array(n)).map(function (_, i) {return i;});
 module.exports = {
   empty: {
@@ -21,4 +20,4 @@ module.exports = {
     value: range(100000),
     index: 50000,
   },
-}[size];
+};
