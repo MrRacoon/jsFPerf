@@ -3,6 +3,8 @@ jsFPerf
 
 [![Build Status](https://travis-ci.org/MrRacoon/jsFPerf.svg?branch=master)](https://travis-ci.org/MrRacoon/jsFPerf)
 
+**To see the latest results, check the [travis build](https://travis-ci.org/MrRacoon/jsFPerf).**
+
 Lots of talk about which immutable solution is faster and for what.
 
 I made this repository because I was curious what the stats would be.
