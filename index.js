@@ -1,16 +1,19 @@
 const { blue, yellow, cyan, green } = require('chalk');
 const { __, find, map, prop } = require('ramda');
 
-const availTests = ['assocPath', 'find', 'path', 'assoc', 'equals'];
-const availsizes = ['empty', 'singleton', 'small', 'medium', 'large'];
+const availSizes = ['empty', 'singleton', 'deep', 'wide'];
+const availTests = [
+  'assoc', 'assocPath', 'equals', 'find', 'path', 'mapIncAndReverse',
+  'mapFilterReduce',
+];
 
 const Getopt = require('node-getopt');
 const getopt = new Getopt([
   ['e', 'empty', 'use empty samples'],
   ['t', 'singleton', 'use singleton samples'],
-  ['s', 'small', 'use small samples'],
-  ['m', 'medium', 'use medium samples'],
-  ['l', 'large', 'use largs samples'],
+  ['d', 'deep', 'use deep samples, single prop, many depths'],
+  ['w', 'wide', 'use wide samples, single deep, many props'],
+
   ['v', 'verbose', 'show samples on the screen'],
   ['h', 'help', 'display this help'],
 ]).setHelp(
@@ -29,7 +32,7 @@ const getopt = new Getopt([
 const { argv, options } = getopt.bindHelp().parseSystem();
 
 const tests   = argv.length ? argv : availTests;
-const size    = find(prop(__, options), availsizes) || 'small';
+const size    = find(prop(__, options), availSizes) || 'wide';
 const samples = require('./src/utils')(size);
 
 if (options.verbose) {
@@ -39,6 +42,7 @@ if (options.verbose) {
 }
 
 map(test => {
+  console.log('Test:', cyan(test));
   require(`./src/${test}`)(samples)
     .on('cycle', function(event) {
       console.log(green(String(event.target)));

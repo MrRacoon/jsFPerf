@@ -1,14 +1,4 @@
-Running tests: assocPath,find,path
-Sample Size: small
-immutable.setIn x 1,079,512 ops/sec ±3.07% (88 runs sampled)
-ramda.assocPath x 1,344,221 ops/sec ±1.04% (90 runs sampled)
-lodash.update x 72,257 ops/sec ±1.36% (89 runs sampled)
-Fastest is ramda.assocPath
-immutable.find x 60,333 ops/sec ±1.06% (85 runs sampled)
-ramda.find x 64,429 ops/sec ±1.16% (87 runs sampled)
-lodash.find x 55,673 ops/sec ±1.06% (91 runs sampled)
-Fastest is ramda.find
-immutable.getIn x 5,406,001 ops/sec ±1.37% (93 runs sampled)
-ramda.path x 10,412,385 ops/sec ±1.26% (86 runs sampled)
-lodash.get x 651,464 ops/sec ±1.35% (90 runs sampled)
-Fastest is ramda.path
+immutable.set x 1,028,285 ops/sec ±0.31% (92 runs sampled)
+lodash.set(w/ Array) x 9,488,744 ops/sec ±0.69% (90 runs sampled)
+lodash.set(w/ String) x 4,642,190 ops/sec ±1.43% (90 runs sampled)
+lodash/fp.set(String) x 4,843 ops/sec ±1.06% (91 runs sampled)

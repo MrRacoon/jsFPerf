@@ -4,8 +4,7 @@
   "description": "expoerimenting with performance metrics between multiple fp libraries",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js | tee lastRun.txt",
-    "test": "./bin/jsfperf -m"
+    "test": "./bin/jsfperf -d && ./bin/jsfperf -w"
   },
   "bin": {
     "jsfperf": "bin/jsfperf"
@@ -37,6 +36,7 @@
     "immutable": "^3.8.1",
     "lodash": "^4.17.4",
     "mori": "^0.3.2",
+    "mudash": "^0.6.0",
     "node-getopt": "^0.2.3",
     "ramda": "^0.23.0"
   }

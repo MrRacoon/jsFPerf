@@ -8,15 +8,15 @@ const suite = new Benchmark.Suite;
 module.exports = ({ list }) => {
   const { value, index } = list;
   const immVal = I.fromJS(value);
-  const pred = R.equals(500);
+  const pred = R.equals(index);
   return suite
-    .add('immutable.find', function () {
+    .add('immutable', function () {
       immVal.find(pred);
     })
-    .add('ramda.find', function () {
+    .add('ramda', function () {
       R.find(pred, value);
     })
-    .add('lodash.find', function () {
+    .add('lodash', function () {
       _.find(pred, value);
     });
 };
