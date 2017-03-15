@@ -7,10 +7,11 @@ const suite = new Benchmark.Suite;
 
 module.exports = ({ object }) => {
   const { value, path, pathStr } = object;
+  console.log('path, pathStr', path, pathStr)
   const immVal = I.fromJS(value);
   return suite
     .add('immutable', () => { immVal.getIn(path); })
     .add('ramda'    , () => { R.path(path, value); })
-    .add('lodash'   , () => { _.get(pathStr, value); });
-
+    .add('lodash'   , () => { _.get(pathStr, value); })
+    .add('vanilla'  , () => { value[pathStr]; });
 }

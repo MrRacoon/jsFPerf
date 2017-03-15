@@ -9,6 +9,7 @@ const suite = new Benchmark.Suite('mapIncAndReverse');
 module.exports = ({ object }) => {
   const { value } = object;
   const immVal = I.fromJS(value);
+
   return suite
     .add('lodash.chain().map(inc).reverse()', () => {
       _.chain(value)
@@ -23,15 +24,24 @@ module.exports = ({ object }) => {
       )(value);
     })
     .add('lodash/fp.compose(reverse, map(inc))', () => {
-      fp.compose(
+      const ans = fp.compose(
         fp.reverse,
         fp.map(fp.inc)
       )(value);
     })
+    .add('vanilla', () => {
+      const inc = k => value[k]+=1;
+      Object
+        .keys(value) // no object.values yet - stage-4 till May?
+        .map(inc)
+        .reverse();
+    })
     .add('ramda.compose(reverse, map(inc))', () => {
+      // is this intentional? this yields nothing since value is an object and reverse only takes a list
       R.compose(
         R.reverse,
         R.map(R.inc)
       )(value);
-    });
+    })
+
 }

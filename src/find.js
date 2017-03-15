@@ -18,5 +18,8 @@ module.exports = ({ list }) => {
     })
     .add('lodash', function () {
       _.find(pred, value);
+    })
+    .add('vanilla', function() {
+      value.find(pred);
     });
 };
