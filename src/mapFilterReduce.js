@@ -22,12 +22,19 @@ module.exports = ({ list }) => {
         .filter(even)
         .reduce(add);
     })
-    .add('lodash', () => {
+    .add('lodash (chain)', () => {
       _.chain(value)
         .map(inc)
         .filter(even)
         .reduce(add)
         .value();
+    })
+    .add('lodash (flow)', () => {
+      _.flowRight( // compose
+        _.partial(_.reduce, _, add),
+        _.partial(_.filter, _, even),
+        _.partial(_.map, _, inc)
+      )(value);
     })
     .add('lodash/fp', () => {
       fp.compose(
