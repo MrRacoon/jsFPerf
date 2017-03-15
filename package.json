@@ -4,8 +4,7 @@
   "description": "expoerimenting with performance metrics between multiple fp libraries",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js | tee lastRun.txt",
-    "test": "./bin/jsfperf -d"
+    "test": "./bin/jsfperf -d && ./bin/jsfperf -w"
   },
   "bin": {
     "jsfperf": "bin/jsfperf"

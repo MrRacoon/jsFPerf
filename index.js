@@ -2,7 +2,7 @@ const { blue, yellow, cyan, green } = require('chalk');
 const { __, find, map, prop } = require('ramda');
 
 const availSizes = ['empty', 'singleton', 'deep', 'wide'];
-const availTests = ['assoc', 'assocPath', 'find', 'path'];
+const availTests = ['assoc', 'assocPath', 'find', 'path', 'mapIncAndReverse'];
 
 const Getopt = require('node-getopt');
 const getopt = new Getopt([
@@ -29,7 +29,7 @@ const getopt = new Getopt([
 const { argv, options } = getopt.bindHelp().parseSystem();
 
 const tests   = argv.length ? argv : availTests;
-const size    = find(prop(__, options), availSizes) || 'small';
+const size    = find(prop(__, options), availSizes) || 'wide';
 const samples = require('./src/utils')(size);
 
 if (options.verbose) {

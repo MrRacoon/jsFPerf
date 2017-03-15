@@ -1,0 +1,4 @@
+immutable.set x 1,028,285 ops/sec ±0.31% (92 runs sampled)
+lodash.set(w/ Array) x 9,488,744 ops/sec ±0.69% (90 runs sampled)
+lodash.set(w/ String) x 4,642,190 ops/sec ±1.43% (90 runs sampled)
+lodash/fp.set(String) x 4,843 ops/sec ±1.06% (91 runs sampled)
