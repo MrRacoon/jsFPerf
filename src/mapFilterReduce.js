@@ -2,6 +2,7 @@ const R    = require('ramda');
 const I    = require('immutable');
 const _    = require('lodash');
 const fp   = require('lodash/fp');
+const mu   = require('mudash');
 // const mori = require('mori');
 
 const Benchmark = require('benchmark');
@@ -42,6 +43,20 @@ module.exports = ({ list }) => {
         fp.filter(even),
         fp.map(inc)
       )(value);
+    })
+    .add('mudash (chain)', () => {
+      mu.chain(immVal)
+        .map(inc)
+        .filter(even)
+        .reduce(add)
+        .value();
+    })
+    .add('mudash (flow)', () => {
+      mu.flowRight( // compose
+        mu.partial(mu.reduce, mu, add),
+        mu.partial(mu.filter, mu, even),
+        mu.partial(mu.map, mu, inc)
+      )(immVal);
     })
     .add('ramda', () => {
       R.compose(

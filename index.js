@@ -41,6 +41,7 @@ if (options.verbose) {
 }
 
 map(test => {
+  console.log('Test:', cyan(test));
   require(`./src/${test}`)(samples)
     .on('cycle', function(event) {
       console.log(green(String(event.target)));
