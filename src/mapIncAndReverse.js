@@ -2,13 +2,15 @@ const R    = require('ramda');
 const I    = require('immutable');
 const _    = require('lodash');
 const fp   = require('lodash/fp');
+const mori = require('mori');
 
 const Benchmark = require('benchmark');
 const suite = new Benchmark.Suite('assoc');
 
 module.exports = ({ object }) => {
   const { value } = object;
-  const immVal = I.fromJS(value);
+  const immVal  = I.fromJS(value);
+  const moriVal = mori.toClj(value);
   return suite
     .add('lodash.chain().map(inc).reverse()', () => {
       _.chain(value)
@@ -33,5 +35,12 @@ module.exports = ({ object }) => {
         R.reverse,
         R.map(R.inc)
       )(value);
+    })
+    .add('mori.comp(reverse, map(inc))', () => {
+      // Terribly slow as these functions return sequences and not vectors
+      mori.comp(
+        mori.reverse,
+        mori.partial(mori.map, mori.inc)
+      )(moriVal);
     });
 }

@@ -1,6 +1,7 @@
-const I = require('immutable');
-const R = require('ramda');
-const _ = require('lodash/fp');
+const I    = require('immutable');
+const R    = require('ramda');
+const _    = require('lodash/fp');
+const mori = require('mori');
 
 const Benchmark = require('benchmark');
 const suite = new Benchmark.Suite;
@@ -12,6 +13,9 @@ module.exports = ({ list }) => {
   return suite
     .add('immutable.find', function () {
       immVal.find(pred);
+    })
+    .add('mori.some', function () {
+      mori.some(pred, moriVal);
     })
     .add('ramda.find', function () {
       R.find(pred, value);
