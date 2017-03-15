@@ -8,7 +8,7 @@ const suite = new Benchmark.Suite;
 module.exports = ({ list }) => {
   const { value, index } = list;
   const immVal = I.fromJS(value);
-  const pred = R.equals(500);
+  const pred = R.equals(index);
   return suite
     .add('immutable.find', function () {
       immVal.find(pred);

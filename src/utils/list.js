@@ -1,4 +1,4 @@
-const range = n => Array.apply(null, Array(n)).map(function (_, i) {return i;});
+const R = { always, range } = require('ramda');
 module.exports = {
   empty: {
     value: [],
@@ -8,16 +8,14 @@ module.exports = {
     value: [1],
     index: 0,
   },
-  small: {
-    value: range(10),
-    index: 5,
-  },
-  medium: {
-    value: range(1000),
+  wide: {
+    value: range(0, 1000),
     index: 500,
   },
-  large: {
-    value: range(100000),
-    index: 50000,
+  deep: {
+    value: range(0, 1000).reduce(R.of, 42),
+    index: 0,
+    path: range(0, 1000).map(always(0)),
+    pathStr: range(0, 1000).map(always(0)).join('.'),
   },
 };

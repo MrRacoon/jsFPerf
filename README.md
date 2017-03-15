@@ -23,7 +23,7 @@ Usage
 By default, `jsfperf` will run all of the available tests with small sample
 sizes.
 
-if You want to alter the size of the samples, you can choose between `empty`, `singleton`, `small`, `medium`, `large`.
+if You want to alter the size of the samples, you can choose between `empty`, `singleton`, `deep`, `wide`.
 
 If you only want to run a subset of the tests, you can append their names to the command.
 
@@ -31,12 +31,12 @@ If you only want to run a subset of the tests, you can append their names to the
 # run all tests with small samples
 jsfperf
 
-# run the find benchmark with medium samples
-jsfperf -m find
+# run the find benchmark with wide samples
+jsfperf -w find
 
 # run the find and assocPath benchmarks with empty samples
 jsfperf --empty find assocPath
 
-# run all tests with large samples
-jsfperf --large
+# run all tests with deep samples
+jsfperf --deep
 ```

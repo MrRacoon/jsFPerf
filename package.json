@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js | tee lastRun.txt",
-    "test": "./bin/jsfperf -m"
+    "test": "./bin/jsfperf -d"
   },
   "bin": {
     "jsfperf": "bin/jsfperf"
