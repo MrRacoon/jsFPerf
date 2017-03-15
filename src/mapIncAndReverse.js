@@ -4,7 +4,7 @@ const _    = require('lodash');
 const fp   = require('lodash/fp');
 
 const Benchmark = require('benchmark');
-const suite = new Benchmark.Suite('assoc');
+const suite = new Benchmark.Suite('mapIncAndReverse');
 
 module.exports = ({ object }) => {
   const { value } = object;
