@@ -3,7 +3,8 @@ const { __, find, map, prop } = require('ramda');
 
 const availSizes = ['empty', 'singleton', 'deep', 'wide'];
 const availTests = [
-  'assoc', 'assocPath', 'find', 'path', 'mapIncAndReverse', 'mapFilterReduce'
+  'assoc', 'assocPath', 'equals', 'find', 'path', 'mapIncAndReverse',
+  'mapFilterReduce',
 ];
 
 const Getopt = require('node-getopt');
