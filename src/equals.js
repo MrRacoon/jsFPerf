@@ -14,5 +14,7 @@ module.exports = ({ object }) => {
   return suite
     .add('lodash.isEqual', () => { _.isEqual(value, secondObject); })
     .add('immutable.is', () => { I.is(firstMap, secondMap); })
-    .add('ramda.equals', () => { R.equals(value, secondObject); });
+    .add('ramda.equals', () => { R.equals(value, secondObject); })
+    // http://stackoverflow.com/questions/1068834/object-comparison-in-javascript
+    .add('vanilla with JSON', () => { JSON.stringify(value) === JSON.stringify(secondObject); });
 }
