@@ -6,12 +6,13 @@ const Benchmark = require('benchmark');
 const suite = new Benchmark.Suite('equals');
 
 module.exports = ({ object }) => {
-  const secondObject = Object.assign({}, object);
-  const firstMap = I.Map(object);
-  const secondMap = I.Map(object);
+  const { value } = object;
+  const secondObject = Object.assign({}, value);
+  const firstMap = I.Map(value);
+  const secondMap = I.Map(secondObject);
 
   return suite
-    .add('lodash.isEqual', () => { _.isEqual(object, secondObject); })
+    .add('lodash.isEqual', () => { _.isEqual(value, secondObject); })
     .add('immutable.is', () => { I.is(firstMap, secondMap); })
-    .add('ramda.equals', () => { R.equals(object, secondObject); });
+    .add('ramda.equals', () => { R.equals(value, secondObject); });
 }
