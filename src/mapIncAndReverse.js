@@ -30,17 +30,18 @@ module.exports = ({ object }) => {
       )(value);
     })
     .add('vanilla', () => {
-      const inc = k => value[k]+=1;
+      const obj = Object.assign({}, value);
+      const inc = k => obj[k]+=1;
       Object
-        .keys(value) // no object.values yet - stage-4 till May?
+        .keys(obj) // no object.values yet - stage-4 till May?
         .map(inc)
         .reverse();
     })
     .add('ramda.compose(reverse, map(inc))', () => {
-      // is this intentional? this yields nothing since value is an object and reverse only takes a list
       R.compose(
         R.reverse,
-        R.map(R.inc)
+        R.map(R.inc),
+        R.values // almost twice as fast to convert to an array first
       )(value);
     })
 

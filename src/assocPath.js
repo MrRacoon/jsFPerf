@@ -12,5 +12,5 @@ module.exports = ({ object }) => {
     .add('immutable', () => { immVal.setIn(path, 42); })
     .add('ramda', () => { R.assocPath(path, 42, value); })
     .add('lodash', () => { _.update(pathStr, 42,  value); })
-    .add('vanilla', () => { value[pathStr]=42 });
+    .add('vanilla', () => { Object.assign({}, value, {[pathStr]:42})});
 }
