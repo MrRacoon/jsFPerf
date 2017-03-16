@@ -19,5 +19,7 @@ module.exports = ({ object }) => {
     .add('lodash/fp (String)' , () => { fp.set(prop, 42, value); })
     .add('lodash/fp (Array)'  , () => { fp.set([prop], 42, value); })
     // .add('mori.assoc'            , () => { mori.assoc(moriVal, path, 42); })
-    .add('ramda'              , () => { R.assoc(prop, 42, value); });
+    .add('ramda'              , () => { R.assoc(prop, 42, value); })
+    .add('vanilla'            , () => { Object.assign({}, value, { [prop]: 42 });
+  });
 }

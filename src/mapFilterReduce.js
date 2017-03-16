@@ -64,5 +64,11 @@ module.exports = ({ list }) => {
         R.filter(even),
         R.map(inc)
       )(value);
+    })
+    .add('vanilla', () => {
+      value
+        .map(inc)
+        .filter(even)
+        .reduce(add, 0)
     });
 }
